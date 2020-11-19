@@ -1,0 +1,6 @@
+// Shadows
+$box-shadow-soft: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
+
+.shadow-soft {
+  box-shadow: $box-shadow-soft !important;
+}
