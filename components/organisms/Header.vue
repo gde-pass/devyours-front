@@ -6,7 +6,7 @@
           <Logo />
         </nuxt-link>
 
-        <a
+        <!-- <a
           role="button"
           class="navbar-burger burger"
           aria-label="menu"
@@ -16,9 +16,9 @@
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </a>
+        </a> -->
       </div>
-      <div id="navbar-data-target" class="navbar-menu">
+      <!-- <div id="navbar-data-target" class="navbar-menu">
         <div class="navbar-start">
           <a class="navbar-item"> Home </a>
 
@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
