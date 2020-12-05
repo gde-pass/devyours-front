@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -22,9 +24,21 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/dotenv',
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
+    '@nuxtjs/apollo',
+    '@nuxtjs/auth',
   ],
+
+  // Config apollo client
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.STRAPI_ENDPOINT,
+      },
+    },
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
