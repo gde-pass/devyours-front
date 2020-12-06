@@ -40,10 +40,15 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light"> Log in </a>
+            <div v-if="!this.$store.state.isConnected">
+              <NuxtLink to="/login" class="button is-primary">
+                <strong>Sign up</strong>
+              </NuxtLink>
+              <NuxtLink to="/login" class="button is-light">Log in</NuxtLink>
+            </div>
+            <div v-else>
+              <a class="button is-primary" @click.prevent="logout()">Log out</a>
+            </div>
           </div>
         </div>
       </div>
@@ -52,7 +57,15 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    async logout() {
+      // clear apollo-token from cookies to make sure user is fully logged out
+      await this.$apolloHelpers.onLogout()
+      this.$store.commit('switchUserConnexionStatus')
+    },
+  },
+}
 </script>
 
 <style>
