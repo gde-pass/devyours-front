@@ -68,7 +68,7 @@ export default {
         // set the jwt to the this.$apolloHelpers.onLogin
         await this.$apolloHelpers.onLogin(jwt)
         // set store variable
-        this.$store.commit('switchUserConnexionStatus')
+        this.$store.commit('switchOnUserConnexionStatus')
         this.$router.push('/')
       } catch (e) {
         // console.error(e)

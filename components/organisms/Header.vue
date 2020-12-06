@@ -62,7 +62,8 @@ export default {
     async logout() {
       // clear apollo-token from cookies to make sure user is fully logged out
       await this.$apolloHelpers.onLogout()
-      this.$store.commit('switchUserConnexionStatus')
+      this.$store.commit('switchOffUserConnexionStatus')
+      this.$router.push('/')
     },
   },
 }

@@ -12,7 +12,7 @@
 import meQuery from '~/queries/me.gql'
 
 export default {
-  middleware: ['authenticated'],
+  middleware: ['protected', 'updateUserStatus'],
   data: () => ({
     me: {},
   }),
