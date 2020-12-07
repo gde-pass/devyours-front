@@ -1,55 +1,26 @@
 <template>
-  <header>
-    <nav class="is-flex" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand shadow-soft rounded border border-light">
-        <nuxt-link class="navbar-item" to="/">
-          <Logo />
-        </nuxt-link>
-
-        <!-- <a
-          role="button"
-          class="navbar-burger burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbar-data-target"
+  <header class="header-global mb-6">
+    <nav
+      id="navbar-main"
+      aria-label="Primary navigation"
+      class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-light"
+    >
+      <div class="container position-relative">
+        <a
+          class="navbar-brand shadow-soft py-2 px-3 rounded border border-light mr-lg-4"
+          href="index.html"
         >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a> -->
-      </div>
-      <!-- <div id="navbar-data-target" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item"> Home </a>
-
-          <a class="navbar-item"> Documentation </a>
-
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link"> More </a>
-
-            <div class="navbar-dropdown">
-              <a class="navbar-item"> About </a>
-              <a class="navbar-item"> Jobs </a>
-              <a class="navbar-item"> Contact </a>
-              <hr class="navbar-divider" />
-              <a class="navbar-item"> Report an issue </a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <div v-if="!this.$store.state.isConnected">
-              <NuxtLink to="/login" class="button is-primary">
-                <strong>Sign up</strong>
-              </NuxtLink>
-              <NuxtLink to="/login" class="button is-light">Log in</NuxtLink>
-            </div>
-            <div v-else>
-              <a class="button is-primary" @click.prevent="logout()">Log out</a>
-            </div>
-          </div>
+          <img class="navbar-brand-dark" src="/dark.svg" alt="Logo light" />
+          <img class="navbar-brand-light" src="/dark.svg" alt="Logo dark" />
+        </a>
+        <div class="d-flex align-items-center">
+          <NuxtLink to="/login" class="btn btn-primary text-secondary mr-3">
+            Log In
+          </NuxtLink>
+          <NuxtLink to="/signin" class="btn btn-primary d-md-inline-block">
+            <font-awesome-icon :icon="['fas', 'sign-in-alt']" class="mr-2" />
+            Sign In
+          </NuxtLink>
         </div>
       </div>
     </nav>
@@ -68,12 +39,3 @@ export default {
   },
 }
 </script>
-
-<style>
-header {
-  max-height: 3.5rem;
-  padding: 1rem 1rem;
-  align-items: center;
-  justify-content: space-between;
-}
-</style>

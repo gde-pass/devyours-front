@@ -13,7 +13,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: ['~/assets/neumorphism'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [],
@@ -26,9 +26,16 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/dotenv',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/style-resources',
     '@nuxtjs/apollo',
+    '@nuxtjs/fontawesome',
   ],
+
+  fontawesome: {
+    icons: {
+      solid: true,
+      brands: true,
+    },
+  },
 
   // Config apollo client
   apollo: {
@@ -42,12 +49,7 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/bootstrap
-    '@nuxtjs/bulma',
   ],
-
-  styleResources: {
-    scss: ['~/assets/index.scss'],
-  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
