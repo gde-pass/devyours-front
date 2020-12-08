@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import meQuery from '~/queries/me.gql'
+import meQuery from '~/gql/queries/me.gql'
 
 export default {
   middleware: ['protected', 'updateUserStatus'],

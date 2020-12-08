@@ -1,4 +1,4 @@
-import meQuery from '~/queries/me.gql'
+import meQuery from '~/gql/queries/me.gql'
 
 export default async function ({ app, redirect }) {
   const hasToken = !!app.$apolloHelpers.getToken()

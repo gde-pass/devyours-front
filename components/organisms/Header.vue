@@ -1,5 +1,5 @@
 <template>
-  <header class="header-global mb-6">
+  <header class="header-global">
     <nav
       id="navbar-main"
       aria-label="Primary navigation"
