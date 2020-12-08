@@ -1,10 +1,8 @@
 <template>
-  <div class="navbar-brand shadow-soft rounded border border-light">
-    <nuxt-link
-      class="navbar-item shadow-soft py-2 px-3 rounded border border-light"
-      to="/"
-    >
-      <img class="logo" src="/dark.svg" alt="logo" />
-    </nuxt-link>
-  </div>
+  <NuxtLink
+    class="navbar-brand shadow-soft py-2 px-3 rounded border border-light mr-lg-4"
+    to="/"
+  >
+    <img class="navbar-brand-light" src="/dark.svg" alt="Logo dark" />
+  </NuxtLink>
 </template>

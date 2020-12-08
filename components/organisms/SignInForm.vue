@@ -77,32 +77,13 @@
               <div class="mt-3 mb-4 text-center">
                 <span class="font-weight-normal">or login with</span>
               </div>
-              <div class="btn-wrapper my-4 text-center">
-                <button
-                  class="btn btn-primary btn-icon-only text-facebook mr-2"
-                  type="button"
-                  aria-label="facebook button"
-                  title="facebook button"
-                >
-                  <font-awesome-icon :icon="['fab', 'facebook-f']" />
-                </button>
-                <button
-                  class="btn btn-primary btn-icon-only text-twitter mr-2"
-                  type="button"
-                  aria-label="twitter button"
-                  title="twitter button"
-                >
-                  <font-awesome-icon :icon="['fab', 'twitter']" />
-                </button>
-                <button
-                  class="btn btn-primary btn-icon-only text-facebook"
-                  type="button"
-                  aria-label="github button"
-                  title="github button"
-                >
-                  <font-awesome-icon :icon="['fab', 'github']" />
-                </button>
-              </div>
+              <social-buttons
+                :icons="[
+                  ['fab', 'facebook-f'],
+                  ['fab', 'twitter'],
+                  ['fab', 'github'],
+                ]"
+              />
               <div
                 class="d-block d-sm-flex justify-content-center align-items-center mt-4"
               >
