@@ -39,9 +39,10 @@ export default {
   computed: mapState(['isConnected']),
   methods: {
     async logout() {
-      console.log(this.isConnected)
       // clear apollo-token from cookies to make sure user is fully logged out
       await this.$apolloHelpers.onLogout()
+
+      // Change store path
       this.$store.commit('switchOffUserConnexionStatus')
       this.$router.push('/')
     },

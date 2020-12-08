@@ -6,10 +6,10 @@
         <div class="col-12 col-md-8 col-lg-6 justify-content-center">
           <div class="card bg-primary shadow-soft border-light p-4">
             <div class="card-header text-center pb-0">
-              <h2 class="h4">Sign in to our platform</h2>
+              <h2 class="mb-0 h5">Create Account</h2>
             </div>
             <div class="card-body">
-              <form class="mt-4" @submit.prevent="SignIn()">
+              <form @submit.prevent="signUp()">
                 <!-- Form -->
                 <div class="form-group">
                   <label for="email">Your email</label>
@@ -21,12 +21,30 @@
                     </div>
                     <input
                       id="email"
-                      v-model="form.identifier"
+                      v-model="form.email"
                       class="form-control"
                       placeholder="example@company.com"
                       type="email"
                       aria-label="email adress"
-                      required
+                    />
+                  </div>
+                </div>
+                <!-- Form -->
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <font-awesome-icon :icon="['fas', 'user']" />
+                      </span>
+                    </div>
+                    <input
+                      id="username"
+                      v-model="form.username"
+                      class="form-control"
+                      placeholder="DevYours"
+                      type="text"
+                      aria-label="username"
                     />
                   </div>
                 </div>
@@ -53,29 +71,45 @@
                     </div>
                   </div>
                   <!-- End of Form -->
-                  <div
-                    class="d-block d-sm-flex justify-content-between align-items-center mb-4"
-                  >
-                    <div class="form-check">
+                  <!-- Form -->
+                  <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <font-awesome-icon :icon="['fas', 'unlock-alt']" />
+                        </span>
+                      </div>
                       <input
-                        id="defaultCheck5"
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
+                        id="confirmPassword"
+                        v-model="form.confirmPassword"
+                        class="form-control"
+                        placeholder="Confirm password"
+                        type="password"
+                        aria-label="Password"
+                        required
                       />
-                      <label class="form-check-label" for="defaultCheck5">
-                        Remember me
-                      </label>
-                    </div>
-                    <div>
-                      <a href="#" class="small text-right">Lost password?</a>
                     </div>
                   </div>
+                  <!-- End of Form -->
+                  <div class="form-check mb-4">
+                    <input
+                      id="defaultCheck6"
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label class="form-check-label" for="defaultCheck6">
+                      I agree to the <a href="#">terms and conditions</a>
+                    </label>
+                  </div>
                 </div>
-                <button class="btn btn-block btn-primary">Sign in</button>
+                <button type="submit" class="btn btn-block btn-primary">
+                  Sign in
+                </button>
               </form>
               <div class="mt-3 mb-4 text-center">
-                <span class="font-weight-normal">or login with</span>
+                <span class="font-weight-normal">or</span>
               </div>
               <div class="btn-wrapper my-4 text-center">
                 <button
@@ -107,8 +141,8 @@
                 class="d-block d-sm-flex justify-content-center align-items-center mt-4"
               >
                 <span class="font-weight-normal">
-                  Not registered?
-                  <a href="#" class="font-weight-bold">Create account</a>
+                  Already have an account?
+                  <a href="#" class="font-weight-bold">Login here</a>
                 </span>
               </div>
             </div>
@@ -120,14 +154,16 @@
 </template>
 
 <script>
-import signInMutation from '~/gql/mutations/login.gql'
+import createUserMutation from '~/gql/mutations/createUser.gql'
 
 export default {
-  name: 'SignInForm',
+  name: 'SignUpForm',
   data: () => ({
     form: {
-      identifier: '',
+      username: '',
+      email: '',
       password: '',
+      confirmPassword: '',
     },
   }),
   async mounted() {
@@ -135,25 +171,18 @@ export default {
     await this.$apolloHelpers.onLogout()
   },
   methods: {
-    async SignIn() {
+    async signUp() {
       const credentials = this.form
+      console.log(credentials)
       try {
-        const {
-          data: {
-            login: { jwt },
-          },
-        } = await this.$apollo.mutate({
-          mutation: signInMutation,
+        await this.$apollo.mutate({
+          mutation: createUserMutation,
           variables: credentials,
         })
 
-        // set the jwt to the this.$apolloHelpers.onLogin
-        await this.$apolloHelpers.onLogin(jwt)
-        // set store variable
-        this.$store.commit('switchOnUserConnexionStatus')
-        this.$router.push('/')
+        this.$router.push('/#')
       } catch (e) {
-        // console.error(e)
+        console.error(e)
       }
     },
   },
