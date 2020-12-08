@@ -6,7 +6,7 @@
         <div class="col-12 col-md-8 col-lg-6 justify-content-center">
           <div class="card bg-primary shadow-soft border-light p-4">
             <div class="card-header text-center pb-0">
-              <h2 class="mb-0 h5">Create Account</h2>
+              <h2 class="h4">Create Account</h2>
             </div>
             <div class="card-body">
               <form @submit.prevent="signUp()">
@@ -173,7 +173,6 @@ export default {
   methods: {
     async signUp() {
       const credentials = this.form
-      console.log(credentials)
       try {
         await this.$apollo.mutate({
           mutation: createUserMutation,
@@ -182,7 +181,7 @@ export default {
 
         this.$router.push('/#')
       } catch (e) {
-        console.error(e)
+        // console.error(e)
       }
     },
   },

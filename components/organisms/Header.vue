@@ -13,10 +13,10 @@
           <img class="navbar-brand-light" src="/dark.svg" alt="Logo dark" />
         </a>
         <div v-if="!isConnected" class="d-flex align-items-center">
-          <NuxtLink to="/login" class="btn btn-primary text-secondary mr-3">
+          <NuxtLink to="/sign-in" class="btn btn-primary text-secondary mr-3">
             Log In
           </NuxtLink>
-          <NuxtLink to="/signin" class="btn btn-primary d-md-inline-block">
+          <NuxtLink to="/sign-up" class="btn btn-primary d-md-inline-block">
             <font-awesome-icon :icon="['fas', 'sign-in-alt']" class="mr-2" />
             Sign In
           </NuxtLink>
