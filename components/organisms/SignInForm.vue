@@ -72,7 +72,15 @@
                     </div>
                   </div>
                 </div>
-                <button class="btn btn-block btn-primary">Sign in</button>
+                <button class="btn btn-block btn-primary">
+                  Sign in
+                  <span
+                    v-if="isLoading"
+                    class="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                </button>
               </form>
               <div class="mt-3 mb-4 text-center">
                 <span class="font-weight-normal">or login with</span>
@@ -110,6 +118,7 @@ export default {
       identifier: '',
       password: '',
     },
+    isLoading: false,
   }),
   async mounted() {
     // clear apollo-token from cookies to make sure user is fully logged out
@@ -119,6 +128,8 @@ export default {
     async SignIn() {
       const credentials = this.form
       try {
+        this.isLoading = true
+
         const {
           data: {
             login: { jwt },
@@ -132,6 +143,7 @@ export default {
         await this.$apolloHelpers.onLogin(jwt)
         // set store variable
         this.$store.commit('switchOnUserConnexionStatus')
+        this.isLoading = false
         this.$router.push('/')
       } catch (e) {
         // console.error(e)

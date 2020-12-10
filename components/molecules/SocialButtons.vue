@@ -14,13 +14,7 @@ export default {
   props: {
     icons: {
       type: Array,
-      default() {
-        return [
-          ['fas', 'question'],
-          ['fas', 'question'],
-          ['fas', 'question'],
-        ]
-      },
+      required: true,
     },
   },
 }

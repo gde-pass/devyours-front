@@ -106,6 +106,12 @@
                 </div>
                 <button type="submit" class="btn btn-block btn-primary">
                   Sign in
+                  <span
+                    v-if="isLoading"
+                    class="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
                 </button>
               </form>
               <div class="mt-3 mb-4 text-center">
@@ -146,6 +152,7 @@ export default {
       password: '',
       confirmPassword: '',
     },
+    isLoading: false,
   }),
   async mounted() {
     // clear apollo-token from cookies to make sure user is fully logged out
@@ -154,13 +161,15 @@ export default {
   methods: {
     async signUp() {
       const credentials = this.form
+
       try {
+        this.isLoading = true
         await this.$apollo.mutate({
           mutation: createUserMutation,
           variables: credentials,
         })
-
-        this.$router.push('/#')
+        this.isLoading = false
+        this.$router.push('/')
       } catch (e) {
         // console.error(e)
       }
