@@ -1,7 +1,7 @@
 <template>
   <!-- Section -->
   <section class="min-vh-100 d-flex bg-primary align-items-center section">
-    <div class="container">
+    <div class="container mt-5">
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 justify-content-center">
           <div class="card bg-primary shadow-soft border-light p-4">
