@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -47,16 +45,12 @@ export default {
   // Config apollo client
   apollo: {
     clientConfigs: {
-      default: {
-        httpEndpoint: process.env.STRAPI_ENDPOINT,
-      },
+      default: '~/gql/apollo-config.js',
     },
   },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [
-    // https://go.nuxtjs.dev/bootstrap
-  ],
+  modules: [],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {

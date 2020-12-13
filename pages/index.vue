@@ -1,9 +1,3 @@
 <template>
-  <div>index</div>
+  <div class="mt-6"></div>
 </template>
-
-<script>
-export default {
-  middleware: ['updateUserStatus'],
-}
-</script>

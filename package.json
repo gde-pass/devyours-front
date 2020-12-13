@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.5",
+    "apollo-cache-persist": "^0.1.1",
     "core-js": "^3.6.5",
     "graphql-tag": "^2.11.0",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "vuex-persistedstate": "^4.0.0-beta.1"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.1",

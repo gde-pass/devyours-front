@@ -2782,6 +2782,11 @@ apollo-cache-inmemory@^1.6.6:
     ts-invariant "^0.4.0"
     tslib "^1.10.0"
 
+apollo-cache-persist@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/apollo-cache-persist/-/apollo-cache-persist-0.1.1.tgz#e6cfe1983b998982a679aaf05241d3ed395edb1e"
+  integrity sha512-/7GAyblPR169ryW3ugbtHqiU0UGkhIt10NeaO2gn2ClxjLHF/nIkJD5mx/0OCF2vLNbbnzLZVDeIO1pf72TrEA==
+
 apollo-cache@1.3.5, apollo-cache@^1.3.5:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/apollo-cache/-/apollo-cache-1.3.5.tgz#9dbebfc8dbe8fe7f97ba568a224bca2c5d81f461"
@@ -10429,6 +10434,11 @@ shelljs@0.8.4:
     interpret "^1.0.0"
     rechoir "^0.6.2"
 
+shvl@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/shvl/-/shvl-2.0.1.tgz#e49c21b7f223041dd3912c5ce9abf2474b69e680"
+  integrity sha512-VU7R5Uxp38LKHooGuZe0TcX2EPK95nn8DvclAvTPyD9/qHmXvt3dR2pJ4JLZ8uLjxQNQ3zNLFJCreteIj3cvpw==
+
 signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
@@ -11744,6 +11754,14 @@ vue@^2.6.12:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
+
+vuex-persistedstate@^4.0.0-beta.1:
+  version "4.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/vuex-persistedstate/-/vuex-persistedstate-4.0.0-beta.1.tgz#f84cda8d1dd1bb5eb19f4e64753f78b2569f605f"
+  integrity sha512-G3d7i6vnSelrYWfCfSKi52e4ZlHlm99yAaMAHYQrCPAPKwYofTxo1QqLtndzvoZpFd/gx2IsAKSeaFjjpuVLYA==
+  dependencies:
+    deepmerge "^4.2.2"
+    shvl "^2.0.0"
 
 vuex@^3.5.1:
   version "3.5.1"
