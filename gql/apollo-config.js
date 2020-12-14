@@ -1,7 +1,7 @@
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { persistCache } from 'apollo-cache-persist'
 
-export default function (ctx) {
+export default function () {
   const cache = new InMemoryCache()
   if (process.client) {
     try {
