@@ -97,7 +97,9 @@
               >
                 <span class="font-weight-normal">
                   Not registered?
-                  <a href="#" class="font-weight-bold">Create account</a>
+                  <NuxtLink to="/sign-up" class="font-weight-bold"
+                    >Create account</NuxtLink
+                  >
                 </span>
               </div>
             </div>

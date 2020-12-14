@@ -129,7 +129,9 @@
               >
                 <span class="font-weight-normal">
                   Already have an account?
-                  <a href="#" class="font-weight-bold">Login here</a>
+                  <NuxtLink to="/sign-in" class="font-weight-bold"
+                    >Login here</NuxtLink
+                  >
                 </span>
               </div>
             </div>
