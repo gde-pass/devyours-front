@@ -15,7 +15,8 @@ export default function (ctx) {
     }
   }
   return {
-    httpEndpoint: process.env.STRAPI_ENDPOINT,
+    httpEndpoint:
+      process.env.STRAPI_ENDPOINT || 'http://localhost:1337/graphql',
     cache,
   }
 }
