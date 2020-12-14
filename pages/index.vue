@@ -1,10 +1,7 @@
 <template>
-  <div class="mt-6">
-    <pre>{{ isConnected }}</pre>
-    <div>
-      <button @click="increment">+</button>
-      <button @click="decrement">-</button>
-      <button @click="toggle">{{ isConnected }}</button>
+  <div class="m-6">
+    <div class="container text-center">
+      <button @click="toggle">Status: {{ isConnected }}</button>
     </div>
   </div>
 </template>
@@ -19,8 +16,6 @@ export default {
   methods: {
     ...mapMutations({
       toggle: 'user/toggle',
-      increment: 'user/increment',
-      decrement: 'user/decrement',
     }),
   },
 }
