@@ -21,6 +21,26 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+/* nunito-sans-regular - latin */
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/nunito-sans-v6-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+    url('./fonts/nunito-sans-v6-latin-regular.eot?#iefix')
+      format('embedded-opentype'),
+    /* IE6-IE8 */ url('./fonts/nunito-sans-v6-latin-regular.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('./fonts/nunito-sans-v6-latin-regular.woff') format('woff'),
+    /* Modern Browsers */ url('./fonts/nunito-sans-v6-latin-regular.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */
+      url('./fonts/nunito-sans-v6-latin-regular.svg#NunitoSans')
+      format('svg'); /* Legacy iOS */
+}
+
 :root {
   --blue: #0056b3;
   --indigo: #6610f2;
