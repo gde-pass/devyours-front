@@ -87,9 +87,9 @@
               </div>
               <social-buttons
                 :icons="[
-                  ['fab', 'facebook-f'],
-                  ['fab', 'twitter'],
-                  ['fab', 'github'],
+                  ['fab', 'facebook-f', 'text-facebook'],
+                  ['fab', 'twitter', 'text-twitter'],
+                  ['fab', 'github', 'text-github'],
                 ]"
               />
               <div
