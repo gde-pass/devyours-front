@@ -43,7 +43,6 @@ export default {
     async logout() {
       await this.$apolloHelpers.onLogout()
       this.toggle()
-
       this.$router.push('/')
     },
   },

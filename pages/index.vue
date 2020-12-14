@@ -9,10 +9,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapMutations, mapGetters } from 'vuex'
+import Vue from 'vue'
 
-export default {
+export default Vue.extend({
   computed: {
     ...mapGetters({ isConnected: 'user/getStatus' }),
   },
@@ -23,5 +24,5 @@ export default {
       decrement: 'user/decrement',
     }),
   },
-}
+})
 </script>
