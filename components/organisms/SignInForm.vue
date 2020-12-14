@@ -109,10 +109,10 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import signInMutation from '~/gql/mutations/login.gql'
 
 export default {
-  name: 'SignInForm',
   data: () => ({
     form: {
       identifier: '',
@@ -121,15 +121,18 @@ export default {
     isLoading: false,
   }),
   async mounted() {
-    // clear apollo-token from cookies to make sure user is fully logged out
+    // clear apollo-token from cookies and clear local storage to make sure user is fully logged out
     await this.$apolloHelpers.onLogout()
+    window.localStorage.removeItem('vuex')
   },
   methods: {
+    ...mapMutations({
+      toggle: 'user/toggle',
+    }),
     async SignIn() {
       const credentials = this.form
       try {
         this.isLoading = true
-
         const {
           data: {
             login: { jwt },
@@ -141,8 +144,8 @@ export default {
 
         // set the jwt to the this.$apolloHelpers.onLogin
         await this.$apolloHelpers.onLogin(jwt)
-        // set store variable
-        this.$store.commit('switchOnUserConnexionStatus')
+        // set isConnedted store variable
+        this.toggle()
         this.isLoading = false
         this.$router.push('/')
       } catch (e) {

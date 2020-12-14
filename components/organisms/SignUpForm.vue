@@ -144,7 +144,6 @@
 import createUserMutation from '~/gql/mutations/createUser.gql'
 
 export default {
-  name: 'SignUpForm',
   data: () => ({
     form: {
       username: '',
@@ -157,6 +156,7 @@ export default {
   async mounted() {
     // clear apollo-token from cookies to make sure user is fully logged out
     await this.$apolloHelpers.onLogout()
+    window.localStorage.removeItem('vuex')
   },
   methods: {
     async signUp() {

@@ -1,9 +1,11 @@
 import meQuery from '~/gql/queries/me.gql'
 
-export default async function ({ app, redirect }) {
+export default async function ({ store, app, redirect }) {
   const hasToken = !!app.$apolloHelpers.getToken()
-  if (!hasToken) {
-    return redirect('/login')
+  const hasStorage = store.getters['user/getStatus']
+
+  if (!hasToken || !hasStorage) {
+    return redirect('/sign-in')
   }
   // make sure the token is still valid
   try {
@@ -13,7 +15,7 @@ export default async function ({ app, redirect }) {
       query: meQuery,
     })
     if (!Object.keys(me).length) {
-      return redirect('/login')
+      return redirect('/sign-in')
     }
     // we are good to go and validated
   } catch (e) {
@@ -22,7 +24,7 @@ export default async function ({ app, redirect }) {
     try {
       await app.$apolloHelpers.onLogout()
       // redirect them to login page
-      return redirect('/login')
+      return redirect('/sign-in')
     } catch (e) {
       //   console.error(e)
     }

@@ -7,38 +7,43 @@
     >
       <div class="container position-relative">
         <logo />
-        <div v-if="!isConnected" class="d-flex align-items-center">
-          <NuxtLink to="/sign-in" class="btn btn-primary text-secondary mr-3">
-            Sign In
-          </NuxtLink>
-          <NuxtLink to="/sign-up" class="btn btn-primary d-md-inline-block">
-            <font-awesome-icon :icon="['fas', 'sign-in-alt']" class="mr-2" />
-            Sign Up
-          </NuxtLink>
-        </div>
-        <div v-else>
-          <button class="btn btn-primary d-md-inline-block" @click="logout()">
-            <font-awesome-icon :icon="['fas', 'sign-out-alt']" class="mr-2" />
-            Log out
-          </button>
-        </div>
+        <client-only>
+          <div v-if="!isConnected" class="d-flex align-items-center">
+            <NuxtLink to="/sign-in" class="btn btn-primary text-secondary mr-3">
+              Sign In
+            </NuxtLink>
+            <NuxtLink to="/sign-up" class="btn btn-primary d-md-inline-block">
+              <font-awesome-icon :icon="['fas', 'sign-in-alt']" class="mr-2" />
+              Sign Up
+            </NuxtLink>
+          </div>
+          <div v-else>
+            <button class="btn btn-primary d-md-inline-block" @click="logout()">
+              <font-awesome-icon :icon="['fas', 'sign-out-alt']" class="mr-2" />
+              Log out
+            </button>
+          </div>
+        </client-only>
       </div>
     </nav>
   </header>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
-  computed: mapState(['isConnected']),
+  computed: {
+    ...mapGetters({ isConnected: 'user/getStatus' }),
+  },
   methods: {
+    ...mapMutations({
+      toggle: 'user/toggle',
+    }),
     async logout() {
-      // clear apollo-token from cookies to make sure user is fully logged out
       await this.$apolloHelpers.onLogout()
+      this.toggle()
 
-      // Change store path
-      this.$store.commit('switchOffUserConnexionStatus')
       this.$router.push('/')
     },
   },
