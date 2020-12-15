@@ -1,5 +1,5 @@
 import { Context, Middleware } from '@nuxt/types'
-import { MeQuery } from '~/types/types.ts'
+import { MeQuery } from '~/types/generated/schema.ts'
 import meQuery from '~/gql/queries/me.gql'
 
 const authenticated: Middleware = async function ({

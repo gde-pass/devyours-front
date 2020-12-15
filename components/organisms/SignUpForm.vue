@@ -140,10 +140,11 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import createUserMutation from '~/gql/mutations/createUser.gql'
 
-export default {
+export default Vue.extend({
   data: () => ({
     form: {
       username: '',
@@ -175,5 +176,5 @@ export default {
       }
     },
   },
-}
+})
 </script>

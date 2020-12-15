@@ -45,7 +45,7 @@ export default {
   // Config apollo client
   apollo: {
     clientConfigs: {
-      default: '~/gql/apollo-config.js',
+      default: '~/gql/apollo-config.ts',
     },
   },
 
