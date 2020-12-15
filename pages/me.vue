@@ -7,7 +7,7 @@ import Vue from 'vue'
 import meQuery from '~/gql/queries/me.gql'
 
 export default Vue.extend({
-  middleware: ['protected'],
+  middleware: ['authenticated'],
   data: () => ({
     me: {},
   }),

@@ -5,7 +5,7 @@ export default function () {
   const cache = new InMemoryCache()
   if (process.client) {
     try {
-      // CONFIGURE CACHE / LOCAL STATE MANAGER
+      // CONFIGURE PERSISTANT CACHE
       persistCache({
         cache,
         storage: window.localStorage,
