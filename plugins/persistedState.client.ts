@@ -1,5 +1,6 @@
+import { Context } from '@nuxt/types'
 import createPersistedState from 'vuex-persistedstate'
 
-export default ({ store }) => {
+export default ({ store }: Context) => {
   createPersistedState({})(store)
 }
