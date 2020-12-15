@@ -110,11 +110,12 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import { mapMutations } from 'vuex'
 import signInMutation from '~/gql/mutations/login.gql'
 
-export default {
+export default Vue.extend({
   data: () => ({
     form: {
       identifier: '',
@@ -155,5 +156,5 @@ export default {
       }
     },
   },
-}
+})
 </script>

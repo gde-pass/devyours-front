@@ -1,0 +1,9 @@
+overwrite: true
+schema: '${STRAPI_ENDPOINT:http://localhost:1337/graphql}'
+documents: 'gql/**/*.gql'
+generates:
+  types/generated/graphql.d.ts:
+    - typescript-graphql-files-modules
+  types/generated/schema.ts:
+    - typescript
+    - typescript-operations

@@ -29,10 +29,11 @@
   </header>
 </template>
 
-<script>
+<script lang="ts">
 import { mapGetters, mapMutations } from 'vuex'
+import Vue from 'vue'
 
-export default {
+export default Vue.extend({
   computed: {
     ...mapGetters({ isConnected: 'user/getStatus' }),
   },
@@ -43,9 +44,8 @@ export default {
     async logout() {
       await this.$apolloHelpers.onLogout()
       this.toggle()
-
       this.$router.push('/')
     },
   },
-}
+})
 </script>

@@ -9,13 +9,15 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   props: {
     icons: {
       type: Array,
       required: true,
     },
   },
-}
+})
 </script>

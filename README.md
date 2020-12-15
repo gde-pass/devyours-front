@@ -6,6 +6,9 @@
 # install dependencies
 $ yarn install
 
+# generate types from graphQL
+$ yarn generate-types
+
 # serve with hot reload at localhost:3000
 $ yarn dev
 

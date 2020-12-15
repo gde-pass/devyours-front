@@ -14,14 +14,14 @@ export default {
   css: ['~/assets/neumorphism'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [{ src: '~/plugins/persistedState.client.js' }],
+  plugins: [{ src: '~/plugins/persistedState.client.ts' }],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
+    '@nuxt/typescript-build',
     '@nuxtjs/dotenv',
     '@nuxtjs/eslint-module',
     '@nuxtjs/apollo',
@@ -45,7 +45,7 @@ export default {
   // Config apollo client
   apollo: {
     clientConfigs: {
-      default: '~/gql/apollo-config.js',
+      default: '~/gql/apollo-config.ts',
     },
   },
 

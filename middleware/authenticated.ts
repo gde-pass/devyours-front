@@ -1,17 +1,23 @@
+import { Context, Middleware } from '@nuxt/types'
+import { MeQuery } from '~/types/generated/schema.ts'
 import meQuery from '~/gql/queries/me.gql'
 
-export default async function ({ store, app, redirect }) {
+const authenticated: Middleware = async function ({
+  app,
+  redirect,
+}: Context): Promise<void> {
   const hasToken = !!app.$apolloHelpers.getToken()
-  const hasStorage = store.getters['user/getStatus']
 
-  if (!hasToken || !hasStorage) {
+  if (!hasToken) {
     return redirect('/sign-in')
   }
   // make sure the token is still valid
   try {
     const {
       data: { me },
-    } = await app.apolloProvider.defaultClient.query({
+    }: {
+      data: { me: MeQuery }
+    } = await app.apolloProvider!.defaultClient.query({
       query: meQuery,
     })
     if (!Object.keys(me).length) {
@@ -30,3 +36,5 @@ export default async function ({ store, app, redirect }) {
     }
   }
 }
+
+export default authenticated
