@@ -8,9 +8,6 @@ import meQuery from '~/gql/queries/me.gql'
 
 export default Vue.extend({
   middleware: ['authenticated'],
-  data: () => ({
-    me: {},
-  }),
   apollo: {
     me: {
       query: meQuery,
