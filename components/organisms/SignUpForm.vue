@@ -48,7 +48,7 @@
                   v-model="form.confirmPassword"
                   label-id="confirmPassword"
                   label="Confirm password"
-                  placeholder="Password"
+                  placeholder="Confirm password"
                   type="password"
                   :icon="['fas', 'unlock-alt']"
                   :required="true"

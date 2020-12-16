@@ -49,6 +49,15 @@ export default {
     },
   },
 
+  // Config Typescript to lint runtine
+  typescript: {
+    typeCheck: {
+      eslint: {
+        files: './**/*.{ts,js,vue}',
+      },
+    },
+  },
+
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [],
 
