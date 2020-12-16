@@ -10,66 +10,44 @@
             </div>
             <div class="card-body">
               <form class="mt-4" @submit.prevent="SignIn()">
-                <!-- Form -->
-                <div class="form-group">
-                  <label for="email">Your email</label>
-                  <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <font-awesome-icon :icon="['fas', 'envelope']" />
-                      </span>
-                    </div>
+                <!-- Email -->
+                <input-field
+                  v-model="form.identifier"
+                  label-id="email"
+                  label="Your email"
+                  placeholder="example@company.com"
+                  type="email"
+                  :icon="['fas', 'envelope']"
+                  :required="true"
+                />
+
+                <!-- Password -->
+                <input-field
+                  v-model="form.password"
+                  label-id="password"
+                  label="Password"
+                  placeholder="Password"
+                  type="password"
+                  :icon="['fas', 'unlock-alt']"
+                  :required="true"
+                />
+
+                <div
+                  class="d-block d-sm-flex justify-content-between align-items-center mb-4"
+                >
+                  <div class="form-check">
                     <input
-                      id="email"
-                      v-model="form.identifier"
-                      class="form-control"
-                      placeholder="example@company.com"
-                      type="email"
-                      aria-label="email adress"
-                      required
+                      id="defaultCheck5"
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
                     />
+                    <label class="form-check-label" for="defaultCheck5">
+                      Remember me
+                    </label>
                   </div>
-                </div>
-                <!-- End of Form -->
-                <div class="form-group">
-                  <!-- Form -->
-                  <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="input-group mb-4">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <font-awesome-icon :icon="['fas', 'unlock-alt']" />
-                        </span>
-                      </div>
-                      <input
-                        id="password"
-                        v-model="form.password"
-                        class="form-control"
-                        placeholder="Password"
-                        type="password"
-                        aria-label="Password"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <!-- End of Form -->
-                  <div
-                    class="d-block d-sm-flex justify-content-between align-items-center mb-4"
-                  >
-                    <div class="form-check">
-                      <input
-                        id="defaultCheck5"
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                      />
-                      <label class="form-check-label" for="defaultCheck5">
-                        Remember me
-                      </label>
-                    </div>
-                    <div>
-                      <a href="#" class="small text-right">Lost password?</a>
-                    </div>
+                  <div>
+                    <a href="#" class="small text-right">Lost password?</a>
                   </div>
                 </div>
                 <button class="btn btn-block btn-primary">

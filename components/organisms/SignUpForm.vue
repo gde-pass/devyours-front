@@ -10,99 +10,60 @@
             </div>
             <div class="card-body">
               <form @submit.prevent="signUp()">
-                <!-- Form -->
-                <div class="form-group">
-                  <label for="email">Your email</label>
-                  <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <font-awesome-icon :icon="['fas', 'envelope']" />
-                      </span>
-                    </div>
-                    <input
-                      id="email"
-                      v-model="form.email"
-                      class="form-control"
-                      placeholder="example@company.com"
-                      type="email"
-                      aria-label="email adress"
-                    />
-                  </div>
-                </div>
-                <!-- Form -->
-                <div class="form-group">
-                  <label for="username">Username</label>
-                  <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <font-awesome-icon :icon="['fas', 'user']" />
-                      </span>
-                    </div>
-                    <input
-                      id="username"
-                      v-model="form.username"
-                      class="form-control"
-                      placeholder="DevYours"
-                      type="text"
-                      aria-label="username"
-                    />
-                  </div>
-                </div>
-                <!-- End of Form -->
-                <div class="form-group">
-                  <!-- Form -->
-                  <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="input-group mb-4">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <font-awesome-icon :icon="['fas', 'unlock-alt']" />
-                        </span>
-                      </div>
-                      <input
-                        id="password"
-                        v-model="form.password"
-                        class="form-control"
-                        placeholder="Password"
-                        type="password"
-                        aria-label="Password"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <!-- End of Form -->
-                  <!-- Form -->
-                  <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <font-awesome-icon :icon="['fas', 'unlock-alt']" />
-                        </span>
-                      </div>
-                      <input
-                        id="confirmPassword"
-                        v-model="form.confirmPassword"
-                        class="form-control"
-                        placeholder="Confirm password"
-                        type="password"
-                        aria-label="Password"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <!-- End of Form -->
-                  <div class="form-check mb-4">
-                    <input
-                      id="defaultCheck6"
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                    />
-                    <label class="form-check-label" for="defaultCheck6">
-                      I agree to the <a href="#">terms and conditions</a>
-                    </label>
-                  </div>
+                <!-- Email -->
+                <input-field
+                  v-model="form.email"
+                  label-id="email"
+                  label="Your email"
+                  placeholder="example@company.com"
+                  type="email"
+                  :icon="['fas', 'envelope']"
+                  :required="true"
+                />
+
+                <!-- Username -->
+                <input-field
+                  v-model="form.username"
+                  label-id="username"
+                  label="Username"
+                  placeholder="DevYours"
+                  type="text"
+                  :icon="['fas', 'user']"
+                  :required="true"
+                />
+
+                <!-- Password -->
+                <input-field
+                  v-model="form.password"
+                  label-id="password"
+                  label="Password"
+                  placeholder="Password"
+                  type="password"
+                  :icon="['fas', 'unlock-alt']"
+                  :required="true"
+                />
+
+                <!-- Confirm Password -->
+                <input-field
+                  v-model="form.confirmPassword"
+                  label-id="confirmPassword"
+                  label="Confirm password"
+                  placeholder="Password"
+                  type="password"
+                  :icon="['fas', 'unlock-alt']"
+                  :required="true"
+                />
+
+                <div class="form-check mb-4">
+                  <input
+                    id="defaultCheck6"
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                  />
+                  <label class="form-check-label" for="defaultCheck6">
+                    I agree to the <a href="#">terms and conditions</a>
+                  </label>
                 </div>
                 <button type="submit" class="btn btn-block btn-primary">
                   Sign in
