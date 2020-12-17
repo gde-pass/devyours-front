@@ -2,7 +2,7 @@
   <div class="btn-wrapper my-4 text-center">
     <social-button
       v-for="(icon, index) in icons"
-      :key="icon[1]"
+      :key="icon[1] + index"
       :icon="icon"
       :class="{ 'mr-2': index + 1 !== icons.length }"
     />
@@ -16,7 +16,13 @@ export default Vue.extend({
   props: {
     icons: {
       type: Array,
-      required: true,
+      default() {
+        return [
+          ['fas', 'question', 'default1'],
+          ['fas', 'question', 'default2'],
+          ['fas', 'question', 'default3'],
+        ]
+      },
     },
   },
 })

@@ -49,6 +49,10 @@ export default {
     },
   },
 
+  storybook: {
+    stories: ['~/stories/**/*.storie.*'],
+  },
+
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [],
 

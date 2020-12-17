@@ -17,7 +17,7 @@ export default Vue.extend({
     icon: {
       type: Array,
       default() {
-        return ['fas', 'question']
+        return ['fas', 'question', 'default']
       },
     },
   },
