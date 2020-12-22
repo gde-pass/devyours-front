@@ -24,6 +24,16 @@
 <script lang="ts">
 import Vue from 'vue'
 
+export interface InputFieldProps {
+  type: String
+  placeholder: String
+  labelId: String
+  label: String
+  icon: Array<String>
+  required: Boolean
+  value: String
+}
+
 export default Vue.extend({
   props: {
     type: {
@@ -43,8 +53,8 @@ export default Vue.extend({
       default: 'default label',
     },
     icon: {
-      type: Array,
-      default: () => ['fas', 'question'],
+      type: Array as () => InputFieldProps['icon'],
+      default: (): InputFieldProps['icon'] => ['fas', 'question'],
     },
     required: {
       type: Boolean,

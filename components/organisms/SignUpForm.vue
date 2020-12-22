@@ -80,10 +80,11 @@
               </div>
               <social-buttons
                 :icons="[
-                  ['fab', 'facebook-f', 'text-facebook'],
-                  ['fab', 'twitter', 'text-twitter'],
-                  ['fab', 'github', 'text-github'],
+                  ['fab', 'facebook-f'],
+                  ['fab', 'twitter'],
+                  ['fab', 'github'],
                 ]"
+                :colors="['text-facebook', 'text-twitter', 'text-github']"
               />
               <div
                 class="d-block d-sm-flex justify-content-center align-items-center mt-4"
