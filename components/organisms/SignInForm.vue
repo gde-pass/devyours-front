@@ -50,20 +50,17 @@
                     <a href="#" class="small text-right">Lost password?</a>
                   </div>
                 </div>
-                <button class="btn btn-block btn-primary">
-                  Sign in
-                  <span
-                    v-if="isLoading"
-                    class="spinner-border spinner-border-sm"
-                    role="status"
-                    aria-hidden="true"
-                  ></span>
-                </button>
+                <Button
+                  :is-loading="isLoading"
+                  css="btn btn-block btn-primary"
+                  @click.native="SignIn()"
+                  >Sign in
+                </Button>
               </form>
               <div class="mt-3 mb-4 text-center">
                 <span class="font-weight-normal">or login with</span>
               </div>
-              <social-buttons
+              <SocialButtons
                 :icons="[
                   ['fab', 'facebook-f'],
                   ['fab', 'twitter'],

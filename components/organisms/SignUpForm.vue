@@ -65,20 +65,17 @@
                     I agree to the <a href="#">terms and conditions</a>
                   </label>
                 </div>
-                <button type="submit" class="btn btn-block btn-primary">
-                  Sign in
-                  <span
-                    v-if="isLoading"
-                    class="spinner-border spinner-border-sm"
-                    role="status"
-                    aria-hidden="true"
-                  ></span>
-                </button>
+                <Button
+                  :is-loading="isLoading"
+                  css="btn btn-block btn-primary"
+                  @click.native="signUp()"
+                  >Sign Up
+                </Button>
               </form>
               <div class="mt-3 mb-4 text-center">
                 <span class="font-weight-normal">or</span>
               </div>
-              <social-buttons
+              <SocialButtons
                 :icons="[
                   ['fab', 'facebook-f'],
                   ['fab', 'twitter'],
