@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="'btn btn-primary btn-icon-only ' + color"
+    :class="'btn btn-primary btn-pill btn-icon-only ' + color"
     type="button"
     :aria-label="`${icon[1]} button`"
     :title="`${icon[1]} button`"

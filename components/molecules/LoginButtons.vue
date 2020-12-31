@@ -1,12 +1,18 @@
 <template>
   <client-only>
     <div v-if="!isConnected" class="d-flex align-items-center">
-      <NuxtLink to="/sign-in" class="btn btn-primary text-secondary mr-3">
-        Sign In
+      <NuxtLink
+        :to="localePath('sign-in')"
+        class="btn btn-primary text-secondary mr-3"
+      >
+        {{ $t('LoginButtons.signIn') }}
       </NuxtLink>
-      <NuxtLink to="/sign-up" class="btn btn-primary d-md-inline-block">
+      <NuxtLink
+        :to="localePath('sign-up')"
+        class="btn btn-primary d-md-inline-block"
+      >
         <font-awesome-icon :icon="['fas', 'sign-in-alt']" class="mr-2" />
-        Sign Up
+        {{ $t('LoginButtons.signUp') }}
       </NuxtLink>
     </div>
     <div v-else>
@@ -14,8 +20,9 @@
         :icon="['fas', 'sign-out-alt']"
         css="btn btn-primary d-md-inline-block"
         @click.native="logout()"
-        >Log out</Button
       >
+        {{ $t('LoginButtons.logOut') }}
+      </Button>
     </div>
   </client-only>
 </template>
@@ -35,7 +42,7 @@ export default Vue.extend({
     async logout() {
       await this.$apolloHelpers.onLogout()
       this.toggle()
-      this.$router.push('/')
+      this.$router.push(this.localePath('index'))
     },
   },
 })

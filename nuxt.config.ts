@@ -42,6 +42,9 @@ export default {
     },
   },
 
+  // Modules (https://go.nuxtjs.dev/config-modules)
+  modules: ['nuxt-i18n'],
+
   // Config apollo client
   apollo: {
     clientConfigs: {
@@ -49,12 +52,39 @@ export default {
     },
   },
 
+  // Config Storybook
   storybook: {
     stories: ['~/stories/**/*.storie.*'],
   },
 
-  // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  // Config i18n traductions
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        name: 'English',
+        file: 'en.json',
+      },
+      {
+        code: 'fr',
+        iso: 'fr-fr',
+        name: 'Français',
+        file: 'fr.json',
+      },
+    ],
+    defaultLocale: 'en',
+    strategy: 'prefix',
+    lazy: true,
+    langDir: 'locales/',
+    vueI18n: {
+      fallbackLocale: ['en', 'fr'], // choose which language to use when your preferred language lacks a translation.
+      messages: {
+        en: require('./locales/en.json'),
+        fr: require('./locales/fr.json'),
+      },
+    },
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
