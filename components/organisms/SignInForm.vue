@@ -6,7 +6,7 @@
         <div class="col-12 col-md-8 col-lg-6 justify-content-center">
           <div class="card bg-primary shadow-soft border-light p-4">
             <div class="card-header text-center pb-0">
-              <h2 class="h4">Sign in to our platform</h2>
+              <h2 class="h4">{{ $t('SignInForm.title') }}</h2>
             </div>
             <div class="card-body">
               <form class="mt-4" @submit.prevent="SignIn()">
@@ -14,8 +14,8 @@
                 <input-field
                   v-model="form.identifier"
                   label-id="email"
-                  label="Your email"
-                  placeholder="example@company.com"
+                  :label="$t('SignInForm.labels.email')"
+                  :placeholder="$t('SignInForm.placeholders.email')"
                   type="email"
                   :icon="['fas', 'envelope']"
                   :required="true"
@@ -25,8 +25,8 @@
                 <input-field
                   v-model="form.password"
                   label-id="password"
-                  label="Password"
-                  placeholder="Password"
+                  :label="$t('SignInForm.labels.password')"
+                  :placeholder="$t('SignInForm.placeholders.password')"
                   type="password"
                   :icon="['fas', 'unlock-alt']"
                   :required="true"
@@ -43,22 +43,27 @@
                       value=""
                     />
                     <label class="form-check-label" for="defaultCheck5">
-                      Remember me
+                      {{ $t('SignInForm.remember') }}
                     </label>
                   </div>
                   <div>
-                    <a href="#" class="small text-right">Lost password?</a>
+                    <a href="#" class="small text-right">
+                      {{ $t('SignInForm.lostPassword') }}
+                    </a>
                   </div>
                 </div>
                 <Button
                   :is-loading="isLoading"
                   css="btn btn-block btn-primary"
-                  @click.native="SignIn()"
-                  >Sign in
+                  @click="SignIn()"
+                >
+                  {{ $t('SignInForm.submit') }}
                 </Button>
               </form>
               <div class="mt-3 mb-4 text-center">
-                <span class="font-weight-normal">or login with</span>
+                <span class="font-weight-normal">
+                  {{ $t('SignInForm.alternatives') }}
+                </span>
               </div>
               <SocialButtons
                 :icons="[
@@ -72,10 +77,13 @@
                 class="d-block d-sm-flex justify-content-center align-items-center mt-4"
               >
                 <span class="font-weight-normal">
-                  Not registered?
-                  <NuxtLink to="/sign-up" class="font-weight-bold"
-                    >Create account</NuxtLink
+                  {{ $t('SignInForm.noAccount') }}
+                  <NuxtLink
+                    :to="localeRoute('sign-up')"
+                    class="font-weight-bold"
                   >
+                    {{ $t('SignInForm.toSignUpForm') }}
+                  </NuxtLink>
                 </span>
               </div>
             </div>
@@ -99,11 +107,6 @@ export default Vue.extend({
     },
     isLoading: false,
   }),
-  async mounted() {
-    // clear apollo-token from cookies and clear local storage to make sure user is fully logged out
-    await this.$apolloHelpers.onLogout()
-    window.localStorage.removeItem('vuex')
-  },
   methods: {
     ...mapMutations({
       toggle: 'user/toggle',
@@ -112,6 +115,11 @@ export default Vue.extend({
       const credentials = this.form
       try {
         this.isLoading = true
+
+        // clear apollo-token from cookies and clear local storage to make sure user is fully logged out
+        await this.$apolloHelpers.onLogout()
+        // window.localStorage.removeItem('vuex')
+        // get jwt token from apollo->strapi
         const {
           data: {
             login: { jwt },
@@ -126,7 +134,8 @@ export default Vue.extend({
         // set isConnedted store variable
         this.toggle()
         this.isLoading = false
-        this.$router.push('/')
+        // redirect user to homepage
+        this.$router.push(this.localePath('index'))
       } catch (e) {
         // console.error(e)
       }

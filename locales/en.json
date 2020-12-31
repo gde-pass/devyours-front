@@ -1,0 +1,46 @@
+{
+  "welcome": "Welcome",
+  "SignInForm": {
+    "title": "Sign in to our platform",
+    "labels": {
+      "email": "Your email",
+      "password": "Password"
+    },
+    "placeholders": {
+      "email": "example@company.com",
+      "password": "Password"
+    },
+    "remember": "Remember me",
+    "lostPassword": "Lost password?",
+    "submit": "Sign in",
+    "alternatives": "or login with",
+    "noAccount": "Not registered?",
+    "toSignUpForm": "Create account"
+  },
+  "SignUpForm": {
+    "title": "Create Account",
+    "labels": {
+      "email": "Your email",
+      "username": "Username",
+      "password": "Password",
+      "confirmPassword": "Confirm password"
+    },
+    "placeholders": {
+      "email": "example@company.com",
+      "username": "DevYours",
+      "password": "Password",
+      "confirmPassword": "Confirm password"
+    },
+    "submit": "Sign Up",
+    "alternatives": "or",
+    "alreadyRegistered": "Already have an account?",
+    "toSignInForm": "Login here",
+    "term1": "I agree to the {0}.",
+    "term2": "terms and conditions"
+  },
+  "LoginButtons": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "logOut": "Log out"
+  }
+}

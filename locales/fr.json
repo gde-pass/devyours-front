@@ -1,0 +1,46 @@
+{
+  "welcome": "Bonjour",
+  "SignInForm": {
+    "title": "Connecte toi sur la plateforme",
+    "labels": {
+      "email": "Votre email",
+      "password": "Mot de passe"
+    },
+    "placeholders": {
+      "email": "exemple@hotmail.com",
+      "password": "Mot de passe"
+    },
+    "remember": "Rester connecté ?",
+    "lostPassword": "Mot de passe perdu ?",
+    "submit": "Connexion",
+    "alternatives": "ou se connecter avec",
+    "noAccount": "Pas encore de compte ?",
+    "toSignUpForm": "Créer un compte"
+  },
+  "SignUpForm": {
+    "title": "Créer un compte",
+    "labels": {
+      "email": "Votre email",
+      "username": "Pseudo",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer mot de passe"
+    },
+    "placeholders": {
+      "email": "exemple@hotmail.com",
+      "username": "DevYours",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer mot de passe"
+    },
+    "submit": "Inscription",
+    "alternatives": "ou",
+    "alreadyRegistered": "Vous avez déjà un compte ?",
+    "toSignInForm": "Se connecter",
+    "term1": "J'ai lu et j'accepte les {0}.",
+    "term2": "Termes et Conditions"
+  },
+  "LoginButtons": {
+    "signIn": "Connexion",
+    "signUp": "Inscription",
+    "logOut": "Déconnexion"
+  }
+}

@@ -6,7 +6,7 @@
         <div class="col-12 col-md-8 col-lg-6 justify-content-center">
           <div class="card bg-primary shadow-soft border-light p-4">
             <div class="card-header text-center pb-0">
-              <h2 class="h4">Create Account</h2>
+              <h2 class="h4">{{ $t('SignUpForm.title') }}</h2>
             </div>
             <div class="card-body">
               <form @submit.prevent="signUp()">
@@ -14,8 +14,8 @@
                 <input-field
                   v-model="form.email"
                   label-id="email"
-                  label="Your email"
-                  placeholder="example@company.com"
+                  :label="$t('SignUpForm.labels.email')"
+                  :placeholder="$t('SignUpForm.placeholders.email')"
                   type="email"
                   :icon="['fas', 'envelope']"
                   :required="true"
@@ -25,8 +25,8 @@
                 <input-field
                   v-model="form.username"
                   label-id="username"
-                  label="Username"
-                  placeholder="DevYours"
+                  :label="$t('SignUpForm.labels.username')"
+                  :placeholder="$t('SignUpForm.placeholders.username')"
                   type="text"
                   :icon="['fas', 'user']"
                   :required="true"
@@ -36,8 +36,8 @@
                 <input-field
                   v-model="form.password"
                   label-id="password"
-                  label="Password"
-                  placeholder="Password"
+                  :label="$t('SignUpForm.labels.password')"
+                  :placeholder="$t('SignUpForm.placeholders.password')"
                   type="password"
                   :icon="['fas', 'unlock-alt']"
                   :required="true"
@@ -47,8 +47,8 @@
                 <input-field
                   v-model="form.confirmPassword"
                   label-id="confirmPassword"
-                  label="Confirm password"
-                  placeholder="Confirm password"
+                  :label="$t('SignUpForm.labels.confirmPassword')"
+                  :placeholder="$t('SignUpForm.placeholders.confirmPassword')"
                   type="password"
                   :icon="['fas', 'unlock-alt']"
                   :required="true"
@@ -59,21 +59,25 @@
                     id="defaultCheck6"
                     class="form-check-input"
                     type="checkbox"
-                    value=""
                   />
                   <label class="form-check-label" for="defaultCheck6">
-                    I agree to the <a href="#">terms and conditions</a>
+                    <i18n path="SignUpForm.term1">
+                      <a href="#">{{ $t('SignUpForm.term2') }}</a>
+                    </i18n>
                   </label>
                 </div>
                 <Button
                   :is-loading="isLoading"
                   css="btn btn-block btn-primary"
                   @click.native="signUp()"
-                  >Sign Up
+                >
+                  {{ $t('SignUpForm.submit') }}
                 </Button>
               </form>
               <div class="mt-3 mb-4 text-center">
-                <span class="font-weight-normal">or</span>
+                <span class="font-weight-normal">
+                  {{ $t('SignUpForm.alternatives') }}
+                </span>
               </div>
               <SocialButtons
                 :icons="[
@@ -87,10 +91,13 @@
                 class="d-block d-sm-flex justify-content-center align-items-center mt-4"
               >
                 <span class="font-weight-normal">
-                  Already have an account?
-                  <NuxtLink to="/sign-in" class="font-weight-bold"
-                    >Login here</NuxtLink
+                  {{ $t('SignUpForm.alreadyRegistered') }}
+                  <NuxtLink
+                    :to="localeRoute('/sign-in')"
+                    class="font-weight-bold"
                   >
+                    {{ $t('SignUpForm.toSignInForm') }}
+                  </NuxtLink>
                 </span>
               </div>
             </div>
@@ -131,7 +138,7 @@ export default Vue.extend({
           variables: credentials,
         })
         this.isLoading = false
-        this.$router.push('/')
+        this.$router.push(this.localePath('index'))
       } catch (e) {
         // console.error(e)
       }
