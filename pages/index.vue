@@ -21,7 +21,7 @@ import { mapMutations, mapGetters } from 'vuex'
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Index',
+  name: 'Index', // bug warning fix, see: https://github.com/nuxt-community/router-module/issues/67
   computed: {
     ...mapGetters({ isConnected: 'user/getStatus' }),
     availableLocales() {
