@@ -13,8 +13,8 @@
 import Vue from 'vue'
 
 export interface SocialButtonProps {
-  icon: Array<String>
-  color: String
+  icon: Array<string>
+  color: string
 }
 
 export default Vue.extend({

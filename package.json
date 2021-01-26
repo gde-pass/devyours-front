@@ -22,7 +22,8 @@
     "graphql-tag": "^2.11.0",
     "nuxt": "^2.14.6",
     "nuxt-i18n": "^6.16.0",
-    "vuex-persistedstate": "^4.0.0-beta.1"
+    "vuex-persistedstate": "^4.0.0-beta.1",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.1",

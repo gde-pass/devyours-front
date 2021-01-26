@@ -15,7 +15,18 @@
     "submit": "Connexion",
     "alternatives": "ou se connecter avec",
     "noAccount": "Pas encore de compte ?",
-    "toSignUpForm": "Créer un compte"
+    "toSignUpForm": "Créer un compte",
+    "errors": {
+      "email": {
+        "required": "Le champ email est requis",
+        "invalid": "Merci de bien vouloir utiliser une adresse email valide"
+      },
+      "password": {
+        "required": "Le champ mot de passe est requis",
+        "short": "Mot de passe trop court (minimum 6 caractères)",
+        "long": "Mot de passe trop long (maximun 128 caractères)"
+      }
+    }
   },
   "SignUpForm": {
     "title": "Créer un compte",
@@ -36,7 +47,25 @@
     "alreadyRegistered": "Vous avez déjà un compte ?",
     "toSignInForm": "Se connecter",
     "term1": "J'ai lu et j'accepte les {0}.",
-    "term2": "Termes et Conditions"
+    "term2": "Termes et Conditions",
+    "errors": {
+      "email": {
+        "required": "Le champ email est requis",
+        "invalid": "Merci de bien vouloir utiliser une adresse email valide"
+      },
+      "password": {
+        "required": "Le champ mot de passe est requis",
+        "short": "Mot de passe trop court (minimum 6 caractères)",
+        "long": "Mot de passe trop long (maximun 128 caractères)"
+      },
+      "confirmPassword": {
+        "required": "Merci de bien vouloir confirmer votre mot de passe",
+        "match": "Les mots de passes ne correspondent pas"
+      },
+      "terms": {
+        "checked": "Vous devez accepter les termes et conditions"
+      }
+    }
   },
   "LoginButtons": {
     "signIn": "Connexion",

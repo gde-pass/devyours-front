@@ -1,8 +1,8 @@
 <template>
   <!-- Form -->
-  <div class="form-group">
+  <div class="form-group mb-4">
     <label :for="labelId">{{ label }}</label>
-    <div class="input-group mb-4">
+    <div class="input-group" :class="{ 'is-invalid': error.length }">
       <div class="input-group-prepend">
         <span class="input-group-text">
           <font-awesome-icon :icon="icon" />
@@ -16,8 +16,13 @@
         :type="type"
         :aria-label="`field ${label}`"
         :required="required"
+        :aria-required="required"
+        :name="name"
+        @blur="$emit('blur', $event.target.value)"
+        @input="$emit('input', $event.target.value)"
       />
     </div>
+    <div class="invalid-feedback">{{ $t(error) }}</div>
   </div>
 </template>
 
@@ -25,13 +30,15 @@
 import Vue from 'vue'
 
 export interface InputFieldProps {
-  type: String
-  placeholder: String
-  labelId: String
-  label: String
-  icon: Array<String>
+  type: string
+  placeholder: string
+  labelId: string
+  label: string
+  icon: Array<string>
   required: Boolean
-  value: String
+  value: string
+  name: string
+  error: string
 }
 
 export default Vue.extend({
@@ -64,6 +71,14 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+    name: {
+      type: String,
+      default: 'input',
+    },
+    error: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     model: {
@@ -77,3 +92,9 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style>
+.is-invalid {
+  border: 1px solid #a91e2c;
+}
+</style>

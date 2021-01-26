@@ -15,7 +15,18 @@
     "submit": "Sign in",
     "alternatives": "or login with",
     "noAccount": "Not registered?",
-    "toSignUpForm": "Create account"
+    "toSignUpForm": "Create account",
+    "errors": {
+      "email": {
+        "required": "Email field is required",
+        "invalid": "Please use a valid email"
+      },
+      "password": {
+        "required": "Password field is required",
+        "short": "Password is too short (minimum is 6 characters)",
+        "long": "Password is too long (maximun is 128 characters)"
+      }
+    }
   },
   "SignUpForm": {
     "title": "Create Account",
@@ -36,7 +47,25 @@
     "alreadyRegistered": "Already have an account?",
     "toSignInForm": "Login here",
     "term1": "I agree to the {0}.",
-    "term2": "terms and conditions"
+    "term2": "terms and conditions",
+    "errors": {
+      "email": {
+        "required": "Email field is required",
+        "invalid": "Please use a valid email"
+      },
+      "password": {
+        "required": "Password field is required",
+        "short": "Password is too short (minimum is 6 characters)",
+        "long": "Password is too long (maximun is 128 characters)"
+      },
+      "confirmPassword": {
+        "required": "Please confirm your password",
+        "match": "Passwords must match"
+      },
+      "terms": {
+        "checked": "You must agree to the terms and conditions"
+      }
+    }
   },
   "LoginButtons": {
     "signIn": "Sign In",

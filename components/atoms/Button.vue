@@ -15,8 +15,8 @@
 import Vue from 'vue'
 
 export interface ButtonProps {
-  icon?: Array<String>
-  css?: String
+  icon?: Array<string>
+  css?: string
   isLoading?: Boolean
 }
 
