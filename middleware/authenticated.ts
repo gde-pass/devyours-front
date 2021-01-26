@@ -1,15 +1,15 @@
 import { Context, Middleware } from '@nuxt/types'
 import { MeQuery } from '~/types/generated/schema.ts'
 import meQuery from '~/gql/queries/me.gql'
-
 const authenticated: Middleware = async function ({
   app,
   redirect,
 }: Context): Promise<void> {
   const hasToken = !!app.$apolloHelpers.getToken()
+  const path = app.localePath('/sign-in')
 
   if (!hasToken) {
-    return redirect('/sign-in')
+    return redirect(path)
   }
   // make sure the token is still valid
   try {
@@ -21,7 +21,7 @@ const authenticated: Middleware = async function ({
       query: meQuery,
     })
     if (!Object.keys(me).length) {
-      return redirect('/sign-in')
+      return redirect(path)
     }
     // we are good to go and validated
   } catch (e) {
@@ -30,7 +30,7 @@ const authenticated: Middleware = async function ({
     try {
       await app.$apolloHelpers.onLogout()
       // redirect them to login page
-      return redirect('/sign-in')
+      return redirect(path)
     } catch (e) {
       //   console.error(e)
     }

@@ -12,6 +12,9 @@
         :to="switchLocalePath(locale.code)"
         >{{ locale.name }}</nuxt-link
       >
+      <NuxtLink class="btn btn-primary m-2" :to="localeRoute('me')">
+        Me profile
+      </NuxtLink>
     </div>
   </div>
 </template>
