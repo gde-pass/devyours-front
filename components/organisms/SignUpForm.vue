@@ -21,8 +21,8 @@
                   :required="true"
                   name="email"
                   :error="errors.email"
-                  @blur="validate('email')"
-                  @input="validate('email')"
+                  @blur="validate(['email'])"
+                  @input="validate(['email'])"
                 />
 
                 <!-- Password -->
@@ -36,8 +36,8 @@
                   :required="true"
                   name="password"
                   :error="errors.password"
-                  @blur="validate('password')"
-                  @input="validate('password')"
+                  @blur="validate(['password', 'confirmPassword'])"
+                  @input="validate(['password', 'confirmPassword'])"
                 />
 
                 <!-- Confirm Password -->
@@ -51,8 +51,8 @@
                   :required="true"
                   name="confirmPassword"
                   :error="errors.confirmPassword"
-                  @blur="validate('confirmPassword')"
-                  @input="validate('confirmPassword')"
+                  @blur="validate(['confirmPassword', 'password'])"
+                  @input="validate(['confirmPassword', 'password'])"
                 />
 
                 <div class="form-check mb-4">
@@ -62,7 +62,7 @@
                     type="checkbox"
                     :checked="form.terms"
                     name="terms"
-                    @change=";(form.terms = !form.terms), validate('terms')"
+                    @change=";(form.terms = !form.terms), validate(['terms'])"
                   />
                   <label class="form-check-label" for="defaultCheck6">
                     <i18n path="SignUpForm.term1">
@@ -163,18 +163,20 @@ export default Vue.extend({
     window.localStorage.removeItem('vuex')
   },
   methods: {
-    validate(field: string) {
+    validate(fields: Array<string>) {
       // use the yup schema created to check a single field validity
-      signUpFormSchema
-        .validateAt(field, this.form)
-        .then(() => {
-          // When the field is valid we clean the error message
-          ;(this.errors as Errors)[field] = ''
-        })
-        .catch((err) => {
-          // When the field is invalid we setup the given error message
-          ;(this.errors as Errors)[field] = err.message
-        })
+      fields.forEach((field) => {
+        signUpFormSchema
+          .validateAt(field, this.form)
+          .then(() => {
+            // When the field is valid we clean the error message
+            ;(this.errors as Errors)[field] = ''
+          })
+          .catch((err) => {
+            // When the field is invalid we setup the given error message
+            ;(this.errors as Errors)[field] = err.message
+          })
+      })
     },
     signUp() {
       try {
